@@ -36,13 +36,29 @@ var mantras = [
 var recieveMessageBtn = document.querySelector(".recieve-message-btn");
 var affirmationBtn = document.querySelector("#affirmation");
 var mantraBtn = document.querySelector("#mantra");
+var addMessageBtn = document.querySelector(".add-message-btn");
+var form = document.querySelector(".user-message-form");
+var outputMessage = document.querySelector("p");
 var image = document.querySelector(".image");
 var outputBox = document.querySelector(".output-box");
 
 // event listeners:
 recieveMessageBtn.addEventListener('click', showMessage);
+addMessageBtn.addEventListener('click', showForm);
 
 // functions:
+function showForm(event) {
+    event.preventDefault();
+    if (affirmationBtn.checked || mantraBtn.checked && !outputMessage.classList.includes('hidden')) {
+        affirmationBtn.checked = false;
+        mantraBtn.checked = false;
+        outputMessage.classList.add('hidden');
+        form.classList.remove('hidden');
+    }
+    image.classList.add('hidden');
+    form.classList.remove('hidden');
+}
+
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length);
   }
@@ -54,7 +70,7 @@ function showMessage(event) {
         displayMessage = createMessage();
         image.classList.add('hidden');
         outputBox.innerHTML = `
-        <p>${newMessage.message}</p>`
+        <p class="output-message">${newMessage.message}</p>`
     }
 };
 
