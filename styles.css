@@ -48,6 +48,7 @@ h1, h2 {
     border-radius: 4px;
     padding-left: 24px;
     padding-right: 24px;
+    margin: 16px;
 }
 
 .message-button {
