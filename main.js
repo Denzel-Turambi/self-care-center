@@ -49,15 +49,15 @@ addMessageBtn.addEventListener('click', showForm);
 // functions:
 function showForm(event) {
     event.preventDefault();
-    if (affirmationBtn.checked || mantraBtn.checked && !outputMessage.classList.includes('hidden')) {
+    if (affirmationBtn.checked || mantraBtn.checked) {
         affirmationBtn.checked = false;
         mantraBtn.checked = false;
-        outputMessage.classList.add('hidden');
+        image.classList.add('hidden');
         form.classList.remove('hidden');
     }
     image.classList.add('hidden');
     form.classList.remove('hidden');
-}
+};
 
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length);
