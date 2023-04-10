@@ -37,14 +37,18 @@ var recieveMessageBtn = document.querySelector(".recieve-message-btn");
 var affirmationBtn = document.querySelector("#affirmation");
 var mantraBtn = document.querySelector("#mantra");
 var addMessageBtn = document.querySelector(".add-message-btn");
+var submitBtn = document.querySelector(".submit-btn");
 var form = document.querySelector(".user-message-form");
 var outputMessage = document.querySelector("p");
 var image = document.querySelector(".image");
 var outputBox = document.querySelector(".output-box");
+var userMessageType = document.querySelector(".user-type-message");
+var userMessage = document.querySelector(".user-message");
 
 // event listeners:
 recieveMessageBtn.addEventListener('click', showMessage);
 addMessageBtn.addEventListener('click', showForm);
+submitBtn.addEventListener('click', showUserMessage);
 
 // functions:
 function showForm(event) {
@@ -58,6 +62,12 @@ function showForm(event) {
     image.classList.add('hidden');
     form.classList.remove('hidden');
 };
+
+function showUserMessage(event) {
+    event.preventDefault();
+    
+    alert('Please complete the form.')
+}
 
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length);
